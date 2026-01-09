@@ -76,6 +76,17 @@ Rev Index: -5  -4  -3  -2  -1
 * `stop`: ending index (exclusive)
 * `step`: jump size
 
+```text
+Example:
+val = "hello world"
+val[6:11]: world
+val[-1]: d
+val[6:11:2]: wrd
+reverse of val[::-1]: dlrow olleh
+length of val: 11
+val[1::-1]: eh
+```
+
 4. New line character `\n`:
 
 ```python
