@@ -164,14 +164,12 @@ print(f"name: {name.upper()} and age: {age + 5} and marks: {result:.3f}.") # pri
 ---
 
 ## 🔤 Lists
-Some useful list function example are->
+they are ordered collection. Some useful list function example are->
 ```python
 my_list = [100,"hello",23.45,True]
 print(f"my_list: {my_list}") # print my_list: [100, 'hello', 23.45, True]
 print(f"my_list[0]: {my_list[0]}") # print my_list[0]: 100
-print(f"my_list[1]: {my_list[1]}") # print my_list[1]: hello
 print(f"my_list[1][0]: {my_list[1][0]}") # print my_list[1][0]: h
-print(f"my_list[1:]: {my_list[1:]}") # print my_list[1:]: ['hello', 23.45, True]
 print(f"my_list[1:3]: {my_list[1:3]}") # print my_list[1:3]: ['hello', 23.45]
 print(f"my_list[::-1]: {my_list[::-1]}") # print my_list[::-1]: [True, 23.45, 'hello', 100]
 print(f"length of my_list: {len(my_list)}") # print length of my_list: 4
