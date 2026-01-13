@@ -118,3 +118,45 @@ hello	world
 len('i am')
 ```
 
+7. String are immutable and hence val[0]="hello" not allowed
+
+8. Just like java string can be concatenated, but here only with string.
+```python
+x = "hello"
+x = x+ " world"
+print(x) # hello world
+letter = "z"
+letter = letter * 5
+print(letter) # zzzzz
+x = "10"
+x=x+1
+print(x) # error string can be concatenated with string only.
+```
+
+9. String methods like x.upper(), x.lower(), x.split() 
+```python
+# split default delimeter is space
+x.split()
+x.split(" ")
+x.split("i")
+```
+
+10. print Formatting in string
+```python
+# Example using format method of str
+x = 'Hello my name is {} and i am {}'.format('kush','engineer')
+x = 'the {2} {1} {0}'.format('fox','brown','quick')  # the quick brown fox 
+x = 'the {q} {b} {f}'.format(q='quick',b='brown',f='fox')  # the quick brown fox
+x = 'the {f} {f} {f}'.format(q='quick',b='brown',f='fox')  # the fox fox fox
+x = 'the {1} {1} {1}'.format('quick','brown','fox') # the brown brown brown
+# Float formatting syntax is string:width.precisionf
+result = 100/777
+print(f"result: {result}") # print result: 0.1287001287001287
+print(f"result: {result:.3f}") # print result: 0.129 (default width is 1)
+print(f"result: {result:10.5f}") # print result:      0.12870 (width is 10 and hence 10 spaces)
+# Example using String interpolation using f"" syntax introduced in python 3.6
+name = "John"
+age = 30
+print(f"name: {name} and age: {age}.") # print name: John and age: 30.
+print(f"name: {name.upper()} and age: {age + 5} and marks: {result:.3f}.") # print name: JOHN and age: 35 and marks: 0.129.
+```
