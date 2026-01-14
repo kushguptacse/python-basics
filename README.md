@@ -191,4 +191,87 @@ num_list.sort()
 print(f"sorted num_list: {num_list}") # print sorted num_list: [1, 2, 5, 5, 6, 9]
 num_list.reverse()
 print(f"reversed num_list: {num_list}") # print reversed num_list: [9, 6, 5, 5, 2, 1]
+sample = ['a','a','b']
+print(f"count 'a': {sample.count('a')}") # print 2
+```
+---
+
+## 🔤 Dictionaries
+1. They are java varient of hashmap. Some useful functions example are->
+```python
+sample = {'name':'kush','age':34,'k2':[1,2,3], 'k3':{'nested':900}}
+print(sample['name']) # print kush
+print(sample['k2'][1]) # print 2
+print(sample['k3']['nested']) # print 900
+sample['name']='agent'
+print(sample['name']) # print agent
+sample[2351]='kk'
+print(sample) # print {'name': 'agent', 'age': 34, 'k2': [1, 2, 3], 'k3': {'nested': 900}, 2351: 'kk'}
+```
+
+2. Allowed keys in dict are immutable objects like int, float, str, tuple, bool, frozenset. We can also mix key types
+```python
+data = {1: "int key", "1": "string key"}
+print(data[1])    # int key
+print(data["1"])  # string key
+```
+
+3. If you want to maintain order of dict keys just like LinkedHashMap python has ordereddict
+
+---
+
+## 🔤 Tuples
+1. They are just like list but are immutable where list are not. means we cannot even change the value present at specific index after creation. Some useful functions example are->
+```python
+sample = (1,2,3)
+print(sample) # print (1,2,3)
+print(sample[0]) # print 1
+print(sample[:2]) # print (1,2)
+```
+
+2. Tuple has only 2 methods  e.g. count(), index().
+```python
+sample = ('a','a','b')
+print(len(sample)) # print 3 (This is build in method. not provided by tuple)
+print(sample.count('a')) # print 2
+print(sample.index('a')) # print 0
+```
+
+3. Tuple are immutable but not nested immutable.
+```python
+sample = ('k',[1,2],9.1) # valid, tuple allows dict and all type as value
+sample[0]= 'hello' # it will give error. not allowed
+sample[1][1] = 44
+print(sample) # print ('k', [1, 44], 9.1)
+```
+---
+
+## 🔤 Sets
+1. They are just like HashSet. It's constructor can take list,tuple,str and any iterable. examples of declartion:
+```python
+myset= set()
+myset.add('hello') # only list has append not set and only set has add not list.
+print(myset) # print {'hello'}
+myset = set("hello")
+print(myset)   # {'h', 'e', 'l', 'o'}
+myset = set([1,2,3,4])
+print(myset) # print {1,2,3,4}
+myset = set((1,2,3))
+print(myset)# print {1,2,3}
+myset = {1,2,3}
+print(myset)# print {1,2,3}
+myset = {1,2,3,2}
+print(myset)# print {1,2,3}
+myset = {} # valid, but it will create empty dict not set.
+```
+
+## 🔤 bool
+valid value True or False. all comparison operator returns bool value
+```python
+val = False
+print(val)
+print(type(val)) # print <class 'bool'>
+val = None
+print(val) # print None
+print(type(val)) # print <class 'NoneType'>
 ```
