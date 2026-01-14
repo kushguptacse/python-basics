@@ -6,6 +6,8 @@ print(f"multiply: {x*y}")
 print(f"subtract: {x-y}")
 print(f"modulo: {x%y}")
 print(f"power: {y**3}")
+print(f"sqrt: {25**0.5}")
+print(f"10/2: {10/2}")
 print(f"2+10*10+3: {2+10*10+3}")
 print(f"(2+10)*(10+3): {(2+10)*(10+3)}")
 
