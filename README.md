@@ -45,7 +45,16 @@ type(my_var)
 int = "hello"
 str = 10
 ```
+---
 
+## 🔤 Arithmetic operation rule
+1. if any number is float result is float.
+
+2. result of division always float. example - 10/2 = 5.0
+
+3. power can be calculated using ** . example - 2**3 = 8
+
+4. sqrt can be calculated using x**0.5
 ---
 
 ## 🔤 Strings
