@@ -25,3 +25,5 @@ num_list.sort()
 print(f"sorted num_list: {num_list}") # print sorted num_list: [1, 2, 5, 5, 6, 9]
 num_list.reverse()
 print(f"reversed num_list: {num_list}") # print reversed num_list: [9, 6, 5, 5, 2, 1]
+sample = ['a','a','b']
+print(f"count 'a': {sample.count('a')}") # print 2
