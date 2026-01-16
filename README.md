@@ -482,3 +482,26 @@ mylist = [item**2 for item in range(0,11) if item%2==0]
 print(mylist) # print [0, 4, 16, 36, 64, 100]
 # we can also apply shorthand if else in list compreshension and also nested forloop. but it will make code less readable
 ```
+---
+
+## 🔤 functions
+1. function name follow snake-casing convention(Not mandatory to follow but best practice). def get_order_status()
+
+2. followed by ''' quotes with docstring and then code we want to write.
+
+3. Note - function should be declared first and then only can be called.
+
+4. we can also provide default value to param to avoid error in case not passed. 
+
+```python
+def get_order_status(order_id=34):
+    '''
+    Docstring for get_order_status
+    
+    :param order_id: Description
+    '''
+    return f"order processed {order_id}!!!"
+
+print(get_order_status(23)) #print: order processed 23!!!
+print(get_order_status()) #print: order processed 34!!!
+```
