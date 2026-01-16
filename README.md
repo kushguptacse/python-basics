@@ -343,4 +343,61 @@ print(content2) # prints file entire content
 with open('myfile.txt','w') as myfile2: # open file in write mode and overwrites existing content
     myfile2.write('new line')
     # myfile2.read() # will give error as file is opened in write mode
+
+```
+---
+
+## 🔤 statements
+1. if, elif and else syntax
+```python
+name = 'kush'
+if name=='kush':
+    print(f"name is {name}")
+elif name == 'pizza':
+    print(f"name is {name}")
+else:
+    print(f"name is {name}")
+```
+2. for loops: iterable objects can be used inside for loop. example - string, list, dictionary, tuple
+```python
+for item in [1, 2, 3]:
+    if item % 2 == 0:
+        print(f"item is even : {item}")
+
+# iterate over string
+for letter in "hello world":
+    print(letter)
+
+# iterate over tuple
+for tup in (1,2,3):
+    print(tup)
+
+# iterate over list of tuple
+for a,b in [(1,2),(3,4),(5,6)]:
+    print(f"first tuple {a} and second tuple {b}")
+
+# iterate over dictionary using keys
+sample_dict = {"k1":"v1","k2":"v2","k3":"v3"}
+for key in sample_dict:
+    print(f"elements with key {key} is {sample_dict[key]}")
+
+# iterate over dictionary using dictionary entry
+for key,item in sample_dict.items(): #tuple
+    print(f"elements with key {key} is {item}")
+```
+
+3. while loops: it has else also which get executed when loop condition finishes.
+```python
+x=0
+while x<5:
+    print(f"x is {x}")
+    x+=1
+else:
+    print(f"x is {x} now")
+```
+
+4. pass, continue and break: pass is used to add as place holder, so that python wont give any error of empty loop
+```python
+for it in [1,2,3]:
+    pass # now this code wont execute, it is just to avoid python to give error of writng empty loop.
 ```
