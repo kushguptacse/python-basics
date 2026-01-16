@@ -85,15 +85,14 @@ Rev Index: -5  -4  -3  -2  -1
 * `stop`: ending index (exclusive)
 * `step`: jump size
 
-```text
+```python
 Example:
 val = "hello world"
-val[6:11]: world
-val[-1]: d
-val[6:11:2]: wrd
-reverse of val[::-1]: dlrow olleh
-length of val: 11
-val[1::-1]: eh
+val[7:11] #print world
+val[-1] #print d
+val[6:11:2] #print wrd
+val[::-1] #print reverse i.e. dlrow olleh
+val[1::-1]#print eh
 ```
 
 4. New line character `\n`:
@@ -124,12 +123,12 @@ hello	world
 6. To get the total number of characters in a string, use `len()`:
 
 ```python
-len('i am')
+len('i am') # print 4
 ```
 
 7. String are immutable and hence val[0]="hello" not allowed
 
-8. Just like java string can be concatenated, but here only with string.
+8. Just like java string can be concatenated using '+' operator, but here only with string.
 ```python
 x = "hello"
 x = x+ " world"
