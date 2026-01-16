@@ -401,3 +401,85 @@ else:
 for it in [1,2,3]:
     pass # now this code wont execute, it is just to avoid python to give error of writng empty loop.
 ```
+
+5. range operator:
+```python
+for num in range(0, 11):
+    print(num)
+
+for num in range(0, 11, 2):  # step size 2
+    print(num)
+```
+
+6. enumerate operator: it converts iterable into tuple with index and value. so that we can iterate with index and value
+```python
+word = "abcde"
+
+for i, val in enumerate(word): 
+    print(f"item at index {i} is {val}")
+
+nums = [1,2,35]
+for i, val in enumerate(nums):
+    print(f"item at index {i} is {val}")
+```
+7. zip operator: using zip you can iterate on multiple iterables together index wise. and loop will iterate till length of smallest iterable exhausted.
+```python
+l1 = [1,2,3]
+l2 = ['a','b','c']
+l3 = [1.1,2.2,3.3]
+
+for x,y,z in zip(l1,l2,l3):
+    print(f"{x},{y},{z}") # it print 1,a,1.1 in first line and then 2,b,2.2 and so on
+
+l4=[False]
+for x,y in zip(l1,l4):
+    print(f"{x},{y}") # it print 1,False only. as zip iterate only to the lowest length iterable passed 
+```
+8. in operator: check if specific value is present in iterable
+```python
+if 1 in [1,2,3]:
+    print("exists")
+
+d={'k1':'v1',"k2":"v2"}
+if "k1" in d:
+    print("exists")
+
+if "v1" in d.values():
+    print("exists")
+
+```
+9. min, max operator: find min and max in iterable
+```python
+l1=[1,2,3]
+print(f"min elment in list is : {min(l1)}") # print 1
+print(f"max elment in list is : {max(l1)}") # print 2
+```
+10. input operator: to read value from console use input fucntion.
+```python
+first = input('enter a number here: ')
+print(int(first)) # input is read as str value.
+```
+11. random library: built in library and has useful functions related to randomization
+```python
+from random import shuffle, randint
+l = [1,2,3,4]
+shuffle(l)
+print(l) #print [3,1,2,4]
+var = randint(0,100)
+print(var) #print 22
+```
+
+12. list comprehension: short-hand syntax to iterate iterable and assign back to list.
+```python
+print("list comprehension example")
+sam_list = [1,2,3]
+mylist = [item*2 for item in sam_list] # it will iterate through sam_list and assign double of each number to mylist
+print(mylist) # print [2,4,6]
+mylist = [item for item in 'word'] 
+print(mylist) # print ['w', 'o', 'r', 'd']
+mylist = [item**2 for item in range(0,11)] 
+print(mylist) # print [0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+mylist = [item**2 for item in range(0,11) if item%2==0] 
+print(mylist) # print [0, 4, 16, 36, 64, 100]
+# we can also apply shorthand if else in list compreshension and also nested forloop. but it will make code less readable
+```

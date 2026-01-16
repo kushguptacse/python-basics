@@ -27,3 +27,16 @@ num_list.reverse()
 print(f"reversed num_list: {num_list}") # print reversed num_list: [9, 6, 5, 5, 2, 1]
 sample = ['a','a','b']
 print(f"count 'a': {sample.count('a')}") # print 2
+
+# list comprehensions
+print("list comprehensions example")
+sam_list = [1,2,3]
+mylist = [item*2 for item in sam_list] # it will iterate through sam_list and assign double of each number to mylist
+print(mylist) # print [2,4,6]
+mylist = [item for item in 'word'] 
+print(mylist) # print ['w', 'o', 'r', 'd']
+mylist = [item**2 for item in range(0,11)] 
+print(mylist) # print [0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+mylist = [item**2 for item in range(0,11) if item%2==0] 
+print(mylist) # print [0, 4, 16, 36, 64, 100]
+
