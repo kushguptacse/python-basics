@@ -505,3 +505,38 @@ def get_order_status(order_id=34):
 print(get_order_status(23)) #print: order processed 23!!!
 print(get_order_status()) #print: order processed 34!!!
 ```
+
+5. if we want to pass dynamic args to method, we can make use of '*' and '**' notation. for *args it will allow tuple to be passed and for **kwargs dict to be passed.
+```python
+def arg_test(*args): # it will take values as input
+    print(type(args)) # print <class 'tuple'>
+    print(args) 
+    print(len(args))
+
+arg_test(10,20,30) # print (10, 20, 30) and length as 3
+arg_test((10,20,30)) # it will pass entire tuple as args[0] only. print ((10, 20, 30),) and length as 1
+arg_test({"fruit":"apple","mango":23}) # it will pass entire tuple as args[0] only. print ({'fruit': 'apple', 'mango': 23},) and length as 1
+
+def kwarg_test(**kwargs): #it will take key,value pair as input
+    print(type(kwargs)) # print <class 'dict'>
+    print(kwargs) # print {'fruit': 'apple', 'mango': 23}
+    for k,v in kwargs.items():
+        print(f"key is : {k} and value is {v}")
+
+kwarg_test(fruit="apple",mango=23)
+#kwarg_test({"fruit":"apple","mango":23}) # give error as it will pass entire dict as kwargs[0], but method expect key,value pair because of ** notation
+
+def mixed(val,*tup,**dict): # order of normal arg, *args and **kwargs cannot be changed. they must be last with **kwargs at end
+    '''
+    * provide info that it is taking tuple, its not mandatory to be named args
+    ** provide info it take dict, its not mandatory to be named kwargs
+    '''
+    print(type(val))
+    print(f"val is : {val}")
+    print(type(tup))
+    print(f"tup is : {tup}")
+    print(type(dict))
+    print(f"dict is : {dict}")
+
+mixed(1,2,3,k1="v1",k2="v2") # 1 will be pased as normal value, then remaining as tuple and at last dict
+```
