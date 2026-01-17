@@ -53,5 +53,5 @@ print(l)
 var = randint(0,100)
 print(var)
 
-first = input('enter a number here: ')
+first = input('enter a number here:')
 print(int(first)) # input is read as str value
