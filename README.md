@@ -411,12 +411,12 @@ for it in [1,2,3]:
     pass # now this code wont execute, it is just to avoid python to give error of writng empty loop.
 ```
 
-5. range operator:
+5. range operator: range(start,end,stepSize) where end index is not included
 ```python
-for num in range(0, 11):
+for num in range(1, 11): #print numbers from 1 till 10
     print(num)
 
-for num in range(0, 11, 2):  # step size 2
+for num in range(0, 11, 2):  # print even numbers from 0 till 10 as step size is 2
     print(num)
 ```
 
