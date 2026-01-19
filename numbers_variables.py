@@ -24,3 +24,4 @@ print(f"type(x): {type(x)}")
 str = 10
 print(f"str is {str}")
 print(f"type(str): {type(str)}")
+

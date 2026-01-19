@@ -169,6 +169,16 @@ print(f"name: {name} and age: {age}.") # print name: John and age: 30.
 print(f"name: {name.upper()} and age: {age + 5} and marks: {result:.3f}.") # print name: JOHN and age: 35 and marks: 0.129.
 ```
 
+11. join operator: is used to join list of strings with a delimeter (opposite of split)
+```python
+print(" ".join("hello world"))  # print h e l l o   w o r l d
+print(" ".join(["hello","world","guys"]))  # print hello world guys
+```
+
+12. capitalize: if you want to capitalize only first char of string.
+```python
+print(f"capitalize method result of helloworld is : {'helloworld'.capitalize()}") # print Helloworld
+```
 ---
 
 ## 🔤 Lists
