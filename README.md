@@ -671,3 +671,55 @@ my_circle2 = Circle(3)
 print(my_circle2.get_circumfrence()) #print 18.84
 print(Circle.pi) #print 3.14
 ```
+
+4. Just like java we can also implement inheritance here. Example-
+```python
+class Animal:
+    def __init__(self):
+        print("Animal created")
+
+    def eat(self):
+        print("eating")
+
+    def who_am_i(self):
+        print("i am a animal")
+
+class Dog(Animal):
+    def __init__(self):
+        Animal.__init__(self) # if we dont write this line, parent constructor not invoked
+        print("dog created")
+    def who_am_i(self):
+        print("i am a dog")
+    def bark(self):
+        print("woof!!!")
+
+my_dog = Dog() #print Animal created. print Dog created
+my_dog.who_am_i() #print i am a dog
+my_dog.eat() #print eating
+my_dog.bark() #print woof!!!
+my_animal = Animal()#print Animal created
+```
+
+5. Python does not directly support polymorphism as there are no concept of reference variable data type. but it can be imitated like below.
+```python
+class Dog:
+    def __init__(self,name):
+        self.name=name
+
+    def speak(self):
+        print(f"{self.name} woof")
+
+class Cat:
+    def __init__(self,name):
+        self.name=name
+
+    def speak(self):
+        print(f"{self.name} meow")
+
+dog = Dog('pluto')  
+cat = Cat('tom')
+animals = [dog,cat]
+for animal in animals: 
+    animal.speak() #here since dog and cat both has speak method it works.
+```
+
