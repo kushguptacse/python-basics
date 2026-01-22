@@ -88,9 +88,9 @@ Rev Index: -5  -4  -3  -2  -1
 ```python
 Example:
 val = "hello world"
-val[7:11] #print world
+val[7:11] #print orld
 val[-1] #print d
-val[6:11:2] #print wrd
+val[7:11:2] #print ol
 val[::-1] #print reverse i.e. dlrow olleh
 val[1::-1]#print eh
 ```
@@ -550,3 +550,72 @@ def mixed(val,*tup,**dict): # order of normal arg, *args and **kwargs cannot be 
 
 mixed(1,2,3,k1="v1",k2="v2") # 1 will be pased as normal value, then remaining as tuple and at last dict
 ```
+---
+
+## 🔤 lambda
+1. just like java we can write lambda to create anonymous function.
+
+2. map and filter method return output as generator which can be used in for loop or can be converted to list.
+```python
+def square(num):
+    return num**2
+
+def is_even(num):
+    return num % 2 == 0
+
+nums = [1, 2, 3, 4]
+# map and filter method return output as generator which can be used in for loop or can be converted to list.
+res_generator = map(square, nums)
+print(list(res_generator))
+res_generator = filter(is_even, nums)
+print(list(res_generator))
+# lambda example
+print(list(map(lambda x: x**2, nums)))
+print(list(filter(lambda x: x % 2 == 0, nums)))
+# square of even numbers
+print(list(map(lambda x: x**2, filter(lambda x: x % 2 == 0, nums))))
+```
+
+---
+
+## 🔤 scope of variables
+1. Local: they are local variables declared inside the function or lambda and not declared global in that function.
+```python
+myvar = 10
+def sample_func():
+    # local variable
+    myvar=20
+
+print(myvar) #print 10
+sample_func()
+print(myvar) #print 10
+```
+2. E: Enclosing function locals -- variables declared in the local scope of any and all enclosing functions (e.g. variable declared inside nested function)
+```python
+# enclosing function example
+name= 'this is global string' #global
+
+def greet():
+    name='dummy' #enclosing local
+    def hello():
+        name='inside' #local
+        print(f'Hello {name}') #print Hello inside
+    hello()
+
+greet()
+```
+
+3. G: Global -- variables declared at top level of module file or declared global in a def with in a file.
+```python
+# global example
+def greet_global():
+    global name 
+    name ='new value'
+
+greet_global()
+print(name) # print new value
+```
+
+4. B: Built-in (Python) -- Names preassigned in the built-in names module: str, open, range, etc
+
+5. in-case same variable name exists in multiple places preference is given in order: LEGB. i.e local given top priority
