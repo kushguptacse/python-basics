@@ -619,3 +619,55 @@ print(name) # print new value
 4. B: Built-in (Python) -- Names preassigned in the built-in names module: str, open, range, etc
 
 5. in-case same variable name exists in multiple places preference is given in order: LEGB. i.e local given top priority
+
+---
+
+## 🔤 oops
+1. In python everything is an object. list, dict, str etc are built-in class. 
+```python
+print(type([1,2,3])) # print <class 'list'>
+```
+
+2. class: just like java we can create class with CamelCaseName. here __init__ work as constructor and self work as this keyword
+```python
+class Sample():
+    pass
+
+sample = Sample()
+print(type(sample)) # print class '__main__.Sample'>
+
+class Dog:
+    is_mammal = True
+
+    def __init__(self, breed, name):
+        self.breed = breed
+        self.name = name
+
+    def bark(self, status):
+        print(f"woof! my name is {self.name} and i am {status}")
+
+
+dog = Dog(breed="lab", name="bruno")
+print(type(dog))  # print <class '__main__.Dog'>
+print(type(dog.breed))  # print <class 'str'>
+print(dog.breed)  # print lab
+print(dog.name)  # print bruno
+print(dog.is_mammal)  # print True
+dog.bark("vaccinated")  # print woof! my name is bruno and i am vaccinated
+```
+
+3. class level variables are like static variable and all instances will share same value. and hence can be accessed via class name
+```python
+class Circle: #class Circle() will also work. brackets are optional
+    pi = 3.14 # class level variable and remain same for all instances
+    def __init__(self, radius=1):
+        self.radius = radius
+    def get_circumfrence(self):
+        return 2*Circle.pi*self.radius #class level var can also be accessed via class name. they are like static 
+    
+my_circle1 = Circle()
+print(my_circle1.get_circumfrence()) #print 6.28
+my_circle2 = Circle(3)
+print(my_circle2.get_circumfrence()) #print 18.84
+print(Circle.pi) #print 3.14
+```
