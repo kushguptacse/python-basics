@@ -55,6 +55,8 @@ str = 10
 3. power can be calculated using ** . example - 2**3 = 8
 
 4. sqrt can be calculated using x**0.5
+
+5. to get division result in interger format use // . example - 9//5: 1
 ---
 
 ## 🔤 Strings
@@ -234,7 +236,7 @@ print(data[1])    # int key
 print(data["1"])  # string key
 ```
 
-3. If you want to maintain order of dict keys just like LinkedHashMap python has ordereddict
+3. If you want to maintain order of dict keys just like LinkedHashMap python has ordereddict. after python3.7+ dict maintains order
 
 ---
 
@@ -255,7 +257,7 @@ print(sample.count('a')) # print 2
 print(sample.index('a')) # print 0
 ```
 
-3. Tuple are immutable but not nested immutable.
+3. Tuple is immutable, but can contain mutable objects
 ```python
 sample = ('k',[1,2],9.1) # valid, tuple allows dict and all type as value
 sample[0]= 'hello' # it will give error. not allowed
@@ -322,7 +324,7 @@ print(content) # prints file entire content again
 myfile.seek(0)
 lines = myfile.readlines() # return list where each line is new item in list.
 print(lines) # prints ['hello this is txt file\n', 'first line\n', 'second line']
-myfile.close() # if not closed it may lead to memory leak
+myfile.close() # if not closed it may lead to resource leak
 ```
 2. To avoid closing file everytime, 'with' can be used. 
 ```python
@@ -461,14 +463,14 @@ if "v1" in d.values():
 ```python
 l1=[1,2,3]
 print(f"min elment in list is : {min(l1)}") # print 1
-print(f"max elment in list is : {max(l1)}") # print 2
+print(f"max elment in list is : {max(l1)}") # print 3
 ```
 10. input operator: to read value from console use input fucntion.
 ```python
 first = input('enter a number here: ')
 print(int(first)) # input is read as str value.
 ```
-11. random library: built in library and has useful functions related to randomization
+11. random library: it has useful functions related to randomization
 ```python
 from random import shuffle, randint
 l = [1,2,3,4]
@@ -536,7 +538,7 @@ def kwarg_test(**kwargs): #it will take key,value pair as input
 kwarg_test(fruit="apple",mango=23)
 #kwarg_test({"fruit":"apple","mango":23}) # give error as it will pass entire dict as kwargs[0], but method expect key,value pair because of ** notation
 
-def mixed(val,*tup,**dict): # order of normal arg, *args and **kwargs cannot be changed. they must be last with **kwargs at end
+def mixed(val,*tup,**dictionary): # order of normal arg, *args and **kwargs cannot be changed. they must be last with **kwargs at end
     '''
     * provide info that it is taking tuple, its not mandatory to be named args
     ** provide info it take dict, its not mandatory to be named kwargs
@@ -545,8 +547,8 @@ def mixed(val,*tup,**dict): # order of normal arg, *args and **kwargs cannot be 
     print(f"val is : {val}")
     print(type(tup))
     print(f"tup is : {tup}")
-    print(type(dict))
-    print(f"dict is : {dict}")
+    print(type(dictionary))
+    print(f"dict is : {dictionary}")
 
 mixed(1,2,3,k1="v1",k2="v2") # 1 will be pased as normal value, then remaining as tuple and at last dict
 ```
@@ -555,7 +557,7 @@ mixed(1,2,3,k1="v1",k2="v2") # 1 will be pased as normal value, then remaining a
 ## 🔤 lambda
 1. just like java we can write lambda to create anonymous function.
 
-2. map and filter method return output as generator which can be used in for loop or can be converted to list.
+2. map and filter method return iterators which can be used in for loop or can be converted to list.
 ```python
 def square(num):
     return num**2
@@ -592,7 +594,6 @@ print(myvar) #print 10
 ```
 2. E: Enclosing function locals -- variables declared in the local scope of any and all enclosing functions (e.g. variable declared inside nested function)
 ```python
-# enclosing function example
 name= 'this is global string' #global
 
 def greet():
@@ -700,7 +701,7 @@ my_dog.bark() #print woof!!!
 my_animal = Animal()#print Animal created
 ```
 
-5. Python does not directly support polymorphism as there are no concept of reference variable data type. but it can be imitated like below.
+5. Python supports polymorphism dynamically (duck typing), not via static types.
 ```python
 class Dog:
     def __init__(self,name):
@@ -720,6 +721,39 @@ dog = Dog('pluto')
 cat = Cat('tom')
 animals = [dog,cat]
 for animal in animals: 
-    animal.speak() #here since dog and cat both has speak method it works.
+    animal.speak() ## Python only checks: does object have speak()?and hence it works.
 ```
 
+6. Abstract class: extend class by ABC and provide abstractmethod
+```python
+from abc import ABC, abstractmethod
+class Animal(ABC):
+    @abstractmethod
+    def speak(self):
+        pass
+
+# animal_obj = Animal() #TypeError: Can't instantiate abstract class Animal with abstract method speak
+
+class Dog(Animal):
+    def speak(self): #in child class it is mandatory to override abstract method.
+        print("woof!!")
+dog = Dog() 
+dog.speak()
+```
+7. if class does not extend ABC or does not provide any abstract method inside it. then object of the class can be created without any error.
+```python
+class Shape(ABC):
+    def sides(self):
+        pass
+
+shape = Shape() #no error as ABC enforces abstraction only if @abstractmethod annotation method exists
+shape.sides() #no error
+
+class Hero:
+    @abstractmethod
+    def power(self):
+        pass
+
+hero = Hero() #no error as ABC parent does not exists
+hero.power() #no error
+```

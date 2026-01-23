@@ -1,7 +1,8 @@
 x = 9
 y = 5
 # Arithmetic operators
-print(f"division: {x/y}")
+print(f"division by /: {x/y}") #division by /: 1.8
+print(f"division by //: {x//y}") #division by //: 1
 print(f"multiply: {x*y}")
 print(f"subtract: {x-y}")
 print(f"modulo: {x%y}")

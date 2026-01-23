@@ -7,8 +7,8 @@ def get_order_status(order_id=34):
     return f"order processed {order_id}!!!"
 
 
-print(get_order_status(23))  # print: order processed 23!!!
 print(get_order_status())  # print: order processed 34!!!
+print(get_order_status(23))  # print: order processed 23!!!
 
 def is_even(nums):
     evens = []
