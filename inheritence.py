@@ -11,6 +11,7 @@ class Animal:
 class Dog(Animal):
     def __init__(self):
         Animal.__init__(self) # if we dont write this line, parent constructor not invoked
+        #super().__init__() #both are same
         print("dog created")
     def who_am_i(self):
         print("i am a dog")

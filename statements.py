@@ -38,7 +38,7 @@ while x < 5:
     print(f"x is {x}")
     x += 1
 else:
-    print(f"x is {x} now")
+    print(f"x is {x} now") #x is 5 now
 
 # pass, continue, break
 for it in [1, 2, 3]:

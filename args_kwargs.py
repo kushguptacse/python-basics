@@ -18,17 +18,17 @@ def kwarg_test(**kwargs): #it will take key,value pair as input
 kwarg_test(fruit="apple",mango=23)
 #kwarg_test({"fruit":"apple","mango":23}) # give error as it will pass entire dict as kwargs[0], but method expect key,value pair
 
-def mixed(val,*tup,**dict): # order of normal arg, *args and **kwargs cannot be changed. they must be last with **kwargs at end
+def mixed(val,*tup,**dictionary): # order of normal arg, *args and **kwargs cannot be changed. they must be last with **kwargs at end
     '''
     * provide info that it is taking tuple, its not mandatory to be named args
     ** provide info it take dict, its not mandatory to be named kwargs
     '''
     print("--------------------")
-    print(type(val))
-    print(f"val is : {val}")
-    print(type(tup))
-    print(f"tup is : {tup}")
-    print(type(dict))
-    print(f"dict is : {dict}")
+    print(type(val)) #<class 'int'>
+    print(f"val is : {val}") #val is : 1
+    print(type(tup)) #<class 'tuple'>
+    print(f"tup is : {tup}")#tup is : (2, 3)
+    print(type(dictionary))#<class 'dict'>
+    print(f"dict is : {dictionary}")#dict is : {'k1': 'v1', 'k2': 'v2'}
 
 mixed(1,2,3,k1="v1",k2="v2") # 1 will be pased as normal val, then remaining as tuple and at last dict

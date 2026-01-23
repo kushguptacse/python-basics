@@ -20,4 +20,4 @@ def is_even(nums):
 my_list, message = is_even([10,21,30])
 print(f"{message}: {my_list}")
 
-my_list, message,third = is_even([10,21,30]) #error as third value not returned and hence cannot be unpacked.
+#my_list, message,third = is_even([10,21,30]) #error as third value not returned and hence cannot be unpacked.

@@ -36,7 +36,7 @@ my_var = "hello"
 5. To check the data type of a variable, use the `type()` function:
 
 ```python
-type(my_var)
+type(my_var) #<class 'str'>
 ```
 
 6. It is allowed to use variable names that match built-in types, **but not recommended**:
@@ -56,7 +56,7 @@ str = 10
 
 4. sqrt can be calculated using x**0.5
 
-5. to get division result in interger format use // . example - 9//5: 1
+5. to get division result in integer format use // . example - 9//5: 1
 ---
 
 ## 🔤 Strings
@@ -159,11 +159,12 @@ x = 'the {2} {1} {0}'.format('fox','brown','quick')  # the quick brown fox
 x = 'the {q} {b} {f}'.format(q='quick',b='brown',f='fox')  # the quick brown fox
 x = 'the {f} {f} {f}'.format(q='quick',b='brown',f='fox')  # the fox fox fox
 x = 'the {1} {1} {1}'.format('quick','brown','fox') # the brown brown brown
-# Float formatting syntax is string:width.precisionf
+# Float formatting syntax is variable:width.precisionf
 result = 100/777
 print(f"result: {result}") # print result: 0.1287001287001287
 print(f"result: {result:.3f}") # print result: 0.129 (default width is 1)
 print(f"result: {result:10.5f}") # print result:      0.12870 (width is 10 and hence 10 spaces)
+print(f"{10.9:10.5f}") #print   10.90000
 # Example using String interpolation using f"" syntax introduced in python 3.6
 name = "John"
 age = 30
@@ -184,7 +185,7 @@ print(f"capitalize method result of helloworld is : {'helloworld'.capitalize()}"
 ---
 
 ## 🔤 Lists
-they are ordered collection. Some useful list function example are->
+they are ordered collection. and we use append method to add element to list. example ->
 ```python
 my_list = [100,"hello",23.45,True]
 print(f"my_list: {my_list}") # print my_list: [100, 'hello', 23.45, True]
@@ -231,12 +232,12 @@ print(sample) # print {'name': 'agent', 'age': 34, 'k2': [1, 2, 3], 'k3': {'nest
 
 2. Allowed keys in dict are immutable objects like int, float, str, tuple, bool, frozenset. We can also mix key types
 ```python
-data = {1: "int key", "1": "string key"}
+data = {1: "int", "1": "string"}
 print(data[1])    # int key
 print(data["1"])  # string key
 ```
 
-3. If you want to maintain order of dict keys just like LinkedHashMap python has ordereddict. after python3.7+ dict maintains order
+3. If you want to maintain order of dict keys just like LinkedHashMap python has ordereddict. after python3.7+ dict maintains insertion order
 
 ---
 
@@ -252,7 +253,7 @@ print(sample[:2]) # print (1,2)
 2. Tuple has only 2 methods  e.g. count(), index().
 ```python
 sample = ('a','a','b')
-print(len(sample)) # print 3 (This is build in method. not provided by tuple)
+print(len(sample)) # print 3 (This is built-in method. not provided by tuple class)
 print(sample.count('a')) # print 2
 print(sample.index('a')) # print 0
 ```
@@ -267,7 +268,7 @@ print(sample) # print ('k', [1, 44], 9.1)
 ---
 
 ## 🔤 Sets
-1. They are just like HashSet. It's constructor can take list,tuple,str and any iterable. examples of declartion:
+1. They are just like HashSet. using add method element can be added. It's constructor can take list,tuple,str and any iterable. examples of declartion:
 ```python
 myset= set()
 myset.add('hello') # only list has append not set and only set has add not list.
@@ -329,8 +330,8 @@ myfile.close() # if not closed it may lead to resource leak
 2. To avoid closing file everytime, 'with' can be used. 
 ```python
 with open('myfile.txt') as myfile2: # automatically closes the file after with block is executed
-    content2 = myfile2.read()
-print(content2) # prints file entire content
+    content2 = myfile2.read() #all the blocks like with,if/else,for/while,try/except does not create new scope
+print(content2) # prints file content. 
 ```
 
 3. Different mode supported while opening file 'r','w','a','r+','w+'
@@ -404,13 +405,13 @@ while x<5:
     print(f"x is {x}")
     x+=1
 else:
-    print(f"x is {x} now")
+    print(f"x is {x} now") #print x is 5 now
 ```
 
-4. pass, continue and break: pass is used to add as place holder, so that python wont give any error of empty loop
+4. pass, continue and break: pass is used to add as place holder, so that python wont give any error of empty loop/class etc.
 ```python
 for it in [1,2,3]:
-    pass # now this code wont execute, it is just to avoid python to give error of writng empty loop.
+    pass # now this code wont execute, it is just to avoid python to give error of writing empty loop.
 ```
 
 5. range operator: range(start,end,stepSize) where end index is not included
@@ -462,10 +463,10 @@ if "v1" in d.values():
 9. min, max operator: find min and max in iterable
 ```python
 l1=[1,2,3]
-print(f"min elment in list is : {min(l1)}") # print 1
-print(f"max elment in list is : {max(l1)}") # print 3
+print(f"min element in list is : {min(l1)}") # print 1
+print(f"max element in list is : {max(l1)}") # print 3
 ```
-10. input operator: to read value from console use input fucntion.
+10. input operator: to read value from console use input function. it return string value
 ```python
 first = input('enter a number here: ')
 print(int(first)) # input is read as str value.
@@ -474,7 +475,7 @@ print(int(first)) # input is read as str value.
 ```python
 from random import shuffle, randint
 l = [1,2,3,4]
-shuffle(l)
+shuffle(l) #it shuffles the list l
 print(l) #print [3,1,2,4]
 var = randint(0,100)
 print(var) #print 22
@@ -518,7 +519,7 @@ print(get_order_status(23)) #print: order processed 23!!!
 print(get_order_status()) #print: order processed 34!!!
 ```
 
-5. if we want to pass dynamic args to method, we can make use of '*' and '**' notation. for *args it will allow tuple to be passed and for **kwargs dict to be passed.
+5. if we want to pass dynamic args to method, we can make use of '*' and '**' notation. for *args it will allow tuple to be passed as comma seprated values and for **kwargs dict to be passed as comma seprated key=value.
 ```python
 def arg_test(*args): # it will take values as input
     print(type(args)) # print <class 'tuple'>
@@ -527,7 +528,7 @@ def arg_test(*args): # it will take values as input
 
 arg_test(10,20,30) # print (10, 20, 30) and length as 3
 arg_test((10,20,30)) # it will pass entire tuple as args[0] only. print ((10, 20, 30),) and length as 1
-arg_test({"fruit":"apple","mango":23}) # it will pass entire tuple as args[0] only. print ({'fruit': 'apple', 'mango': 23},) and length as 1
+arg_test({"fruit":"apple","mango":23}) # it will pass entire dict as args[0] only. print ({'fruit': 'apple', 'mango': 23},) and length as 1
 
 def kwarg_test(**kwargs): #it will take key,value pair as input
     print(type(kwargs)) # print <class 'dict'>
@@ -536,28 +537,28 @@ def kwarg_test(**kwargs): #it will take key,value pair as input
         print(f"key is : {k} and value is {v}")
 
 kwarg_test(fruit="apple",mango=23)
-#kwarg_test({"fruit":"apple","mango":23}) # give error as it will pass entire dict as kwargs[0], but method expect key,value pair because of ** notation
+#kwarg_test({"fruit":"apple","mango":23}) # give error as it will pass entire dict object as kwargs[0], but method expect key,value pair because of ** notation
 
 def mixed(val,*tup,**dictionary): # order of normal arg, *args and **kwargs cannot be changed. they must be last with **kwargs at end
     '''
     * provide info that it is taking tuple, its not mandatory to be named args
     ** provide info it take dict, its not mandatory to be named kwargs
     '''
-    print(type(val))
-    print(f"val is : {val}")
-    print(type(tup))
-    print(f"tup is : {tup}")
-    print(type(dictionary))
-    print(f"dict is : {dictionary}")
+    print(type(val)) #<class 'int'>
+    print(f"val is : {val}") #val is : 1
+    print(type(tup)) #<class 'tuple'>
+    print(f"tup is : {tup}")#tup is : (2, 3)
+    print(type(dictionary))#<class 'dict'>
+    print(f"dict is : {dictionary}")#dict is : {'k1': 'v1', 'k2': 'v2'}
 
-mixed(1,2,3,k1="v1",k2="v2") # 1 will be pased as normal value, then remaining as tuple and at last dict
+mixed(1,2,3,k1="v1",k2="v2") # 1 will be pased as normal value, then remaining int as tuple and at last as dict
 ```
 ---
 
 ## 🔤 lambda
 1. just like java we can write lambda to create anonymous function.
 
-2. map and filter method return iterators which can be used in for loop or can be converted to list.
+2. map and filter built-in method return iterators which can be used in for loop or can be converted to list.
 ```python
 def square(num):
     return num**2
@@ -566,11 +567,10 @@ def is_even(num):
     return num % 2 == 0
 
 nums = [1, 2, 3, 4]
-# map and filter method return output as generator which can be used in for loop or can be converted to list.
-res_generator = map(square, nums)
-print(list(res_generator))
-res_generator = filter(is_even, nums)
-print(list(res_generator))
+res = map(square, nums)
+print(list(res))
+res = filter(is_even, nums)
+print(list(res))
 # lambda example
 print(list(map(lambda x: x**2, nums)))
 print(list(filter(lambda x: x % 2 == 0, nums)))
@@ -621,6 +621,21 @@ print(name) # print new value
 
 5. in-case same variable name exists in multiple places preference is given in order: LEGB. i.e local given top priority
 
+6. unlike java all the blocks like with,if/else,for/while,try/except does not create new scope. the variable declare here will take scope where block is created. example-
+```python
+def first():
+    def second():
+        x=20
+    second()
+    # print(x) #give error as x is not available outside second method
+
+first()
+
+for i in range(1,4):
+    x=i
+print(x) #print 3
+```
+
 ---
 
 ## 🔤 oops
@@ -629,9 +644,9 @@ print(name) # print new value
 print(type([1,2,3])) # print <class 'list'>
 ```
 
-2. class: just like java we can create class with CamelCaseName. here __init__ work as constructor and self work as this keyword
+2. class: just like java we can create class with CamelCaseName. here __init__ work as constructor and self work as this keyword. it is not mandatory to use self just it should be first argument.
 ```python
-class Sample():
+class Sample(): #brackets are optional here
     pass
 
 sample = Sample()
@@ -688,6 +703,7 @@ class Animal:
 class Dog(Animal):
     def __init__(self):
         Animal.__init__(self) # if we dont write this line, parent constructor not invoked
+        #super().__init__() #both are same
         print("dog created")
     def who_am_i(self):
         print("i am a dog")
@@ -756,4 +772,45 @@ class Hero:
 
 hero = Hero() #no error as ABC parent does not exists
 hero.power() #no error
+```
+
+8. override built-in methods like len() str() 
+```python
+
+class Book:
+    def __init__(self, title, collection):
+        self.title = title
+        self.collection = collection
+
+mybook1 = Book('Harry Potter',[
+    "Harry Potter and the Philosopher's Stone",
+    "Harry Potter and the Chamber of Secrets",
+    "Harry Potter and the Prisoner of Azkaban",
+    "Harry Potter and the Goblet of Fire",
+    "Harry Potter and the Order of the Phoenix",
+    "Harry Potter and the Half-Blood Prince",
+    "Harry Potter and the Deathly Hallows"
+])
+
+print(mybook1) #print <__main__.Book object at 0x7d9e3ca56cb0>
+#print(f"collection has total books: {len(mybook1)}")  # give error as book does not have len() function.
+
+class BookSample:
+    def __init__(self, title, collection):
+        self.title = title
+        self.collection = collection
+    def __str__(self):
+            return f"Title- {self.title}"
+
+    def __len__(self):
+            return len(self.collection)
+    
+mybook2 = BookSample('Shiva Trilogy',[
+    "The Immortals of Meluha",
+    "The Secret of the Nagas",
+    "The Oath of the Vayuputras"
+])
+
+print(mybook2) #print Title-  Shiva Trilogy
+print(f"collection has total books: {len(mybook2)}") #print collection has total books: 3
 ```

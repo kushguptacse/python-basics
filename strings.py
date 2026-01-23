@@ -38,3 +38,6 @@ print("----------------join example----------------")
 print(" ".join("hello world"))  # print h e l l o   w o r l d
 print(" ".join(["hello","world","guys"]))  # print hello world guys
 print(f"capitalize method result of helloworld is : {'helloworld'.capitalize()}") # print Helloworld
+print(type('jelll'))
+
+print(f"{10.9:10.5f}")
