@@ -756,7 +756,7 @@ class Dog(Animal):
 dog = Dog() 
 dog.speak()
 ```
-7. if class does not extend ABC or does not provide any abstract method inside it. then object of the class can be created without any error.
+7. If class does not extend ABC or does not provide any abstract method inside it. then object of the class can be created without any error.
 ```python
 class Shape(ABC):
     def sides(self):
@@ -774,7 +774,7 @@ hero = Hero() #no error as ABC parent does not exists
 hero.power() #no error
 ```
 
-8. override built-in methods like len() str() 
+8. Override built-in methods like len() str() 
 ```python
 
 class Book:
@@ -793,7 +793,7 @@ mybook1 = Book('Harry Potter',[
 ])
 
 print(mybook1) #print <__main__.Book object at 0x7d9e3ca56cb0>
-#print(f"collection has total books: {len(mybook1)}")  # give error as book does not have len() function.
+#print(f"collection has total books: {len(mybook1)}")  # give error as book does not have len() function
 
 class BookSample:
     def __init__(self, title, collection):
