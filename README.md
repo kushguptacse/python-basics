@@ -265,6 +265,8 @@ sample[0]= 'hello' # it will give error. not allowed
 sample[1][1] = 44
 print(sample) # print ('k', [1, 44], 9.1)
 ```
+
+```
 ---
 
 ## 🔤 Sets
@@ -495,6 +497,17 @@ mylist = [item**2 for item in range(0,11) if item%2==0]
 print(mylist) # print [0, 4, 16, 36, 64, 100]
 # we can also apply shorthand if else in list compreshension and also nested forloop. but it will make code less readable
 ```
+
+13. Iterables (e.g. tuples, list, set etc) can be unpacked directly and assigned into variables.
+```python
+coord=(2,5)
+x,y=coord #x=2,y=5
+a,b={1,2} # a=1,b=2
+l1,l2 = [1,2,3] # it will give error as three variables required
+f,*s=[1,2,3,4] # f=1 and s=[2,3,4]
+c1,c2,c3='hel' # c1='h',c2='e' and c3='l'
+```
+
 ---
 
 ## 🔤 functions

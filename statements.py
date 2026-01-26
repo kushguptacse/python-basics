@@ -53,3 +53,14 @@ for it in [1, 2, 3]:
     if it % 2 == 0:
         break
     print(it)
+print("000000000000000000000000000000000000000000000000000000")
+coord=(2,5)
+x,y=coord #x=2,y=5
+print(f"x {x} and y {y}")
+a,b={1,2} # a=1,b=2
+print(f"x {a} and y {b}")
+f,*s=[1,2,3,4] # f=1 and s=[2,3,4]
+print(f"x {f} and y {s}")
+c1,c2,c3='hel' # c1='h',c2='e' and c3='l'
+print(f"x {c1} and y {c2}")
+l1,l2 = [1,2,3] # it will give error as three variables required'
