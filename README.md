@@ -827,3 +827,30 @@ mybook2 = BookSample('Shiva Trilogy',[
 print(mybook2) #print Title-  Shiva Trilogy
 print(f"collection has total books: {len(mybook2)}") #print collection has total books: 3
 ```
+
+---
+
+## 🔤 modules and packages
+1. PyPI (Python Package Index) is a repository of open-source third-party Python packages. We use `pip` to install packages from PyPI.
+
+2. Once a package is installed, we can import its modules, classes, or functions using the `import` statement.
+
+3. A module is a `.py` file that contains Python code and can be imported into another Python file.
+
+4. Packages are collection of modules. example:
+
+```python
+mypackage/
+├── __init__.py
+├── first.py
+└── second.py
+first.py
+def method_first():
+   print("inside method_first of module first.py")
+second.py
+from first import method_first
+
+method_first() # print inside method_first of module first.py
+```
+
+5. `__init__.py` is used to initialize a package. It is optional in Python 3.3+, but still commonly used for clarity and package-level configuration.
