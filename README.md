@@ -854,3 +854,9 @@ method_first() # print inside method_first of module first.py
 ```
 
 5. `__init__.py` is used to initialize a package. It is optional in Python 3.3+, but still commonly used for clarity and package-level configuration.
+
+6. When you run a Python file directly, Python adds only the directory of that file to sys.path.(means current package and sub package only visible)
+It does not automatically include the parent directory.
+Because of this, if you run child.py directly and it tries to import parent.py from the parent folder, you may get a ModuleNotFoundError. in-order to avoid that run child file via module way like - python3 -m parent_folder.child_folder.child.
+
+7. In production prefer design where main file present in root package invokes sub-package files. where each package provide specific behaviour.
