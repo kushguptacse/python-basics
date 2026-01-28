@@ -898,3 +898,36 @@ two_method()
 # 5. Executes in both cases
 
 ```
+
+---
+
+## 🔤 Error and Exception handling
+1. try, except and finally are block equivalent to try,catch and finally block of java. example-
+```python
+try:
+    x=10
+    y="20"
+    print(x+y)
+except TypeError:
+    print("TypeError cannot add int with str")
+except:
+    print("For all other exception it will execute")
+else:
+    print("will execute if No exception")
+finally:
+    print("will execute always")
+```
+
+2. Just like while, except also has else, which get executed if no exception not caught. also like java try must have either except or finally. example of else use:
+```python
+flag = True
+while flag:
+    try:
+        num = int(input("choose a number: "))
+    except:
+        print("provide number only!!")
+    else:
+        flag=False
+else:
+    print(f"Thanks for choosing {num}")
+```
