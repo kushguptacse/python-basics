@@ -931,3 +931,27 @@ while flag:
 else:
     print(f"Thanks for choosing {num}")
 ```
+
+
+---
+
+## 🔤 Pylint and unittest Library
+1.  Pylint is a static code analysis tool for Python. It checks code quality, coding standards (PEP8), and possible errors. Pylint gives a score (0–10) for code quality. example- pylint sample.py
+
+2. Common checks by pylint: Unused variables and imports, Naming convention issues, Broad except: usage, Missing docstrings, Code complexity etc. All these impact pylint score of file.
+
+3. unittest library is used to write unit test cases of python functions. Example to run test file: python3 -m tests.test_functions
+```python
+import unittest
+from functions import is_even
+
+class TestFunctions(unittest.TestCase):
+
+    def test_is_even_empty(self):
+        my_list, message = is_even([])
+        self.assertEquals(my_list,[])
+	self.assertEquals(message,"success")
+
+if __name__ == '__main__':
+    unittest.main()
+```
