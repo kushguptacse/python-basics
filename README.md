@@ -837,7 +837,7 @@ print(f"collection has total books: {len(mybook2)}") #print collection has total
 
 3. A module is a `.py` file that contains Python code and can be imported into another Python file.
 
-4. Packages are collection of modules. example:
+4. Packages are collection of modules. and should follow snakecase convention like method.example:
 
 ```python
 mypackage/
@@ -860,3 +860,41 @@ It does not automatically include the parent directory.
 Because of this, if you run child.py directly and it tries to import parent.py from the parent folder, you may get a ModuleNotFoundError. in-order to avoid that run child file via module way like - python3 -m parent_folder.child_folder.child.
 
 7. In production prefer design where main file present in root package invokes sub-package files. where each package provide specific behaviour.
+
+### __name__ and '__main__'
+
+1. When a Python file is run **directly**, Python sets the special variable `__name__` to `"__main__"`. This allows us to execute code only when the file is run directly. 
+When the same file is **imported as a module**, `__name__` is set to the module’s name.
+```python
+# one.py
+if __name__ =='__main__':
+  #initialization code, that will only executes when this file run directly.
+else:
+  #code it will get executed if someone import this file in some file.
+```
+
+2. Execution order-> When a module is imported, Python executes all top-level (root-level) code in that module once, from top to bottom. example- 
+```python
+from one import one_method
+# 1. Executes all root-level code of one.py
+
+def two_method():
+    print("hello from two_method inside package_main_test package from two.py")
+
+print("root level message from two.py")
+# 2. Executed immediately
+
+one_method()
+# 3. Executes one_method
+
+if __name__ == "__main__":
+    print("main block of two.py")
+    # 4. Executes only when two.py is run directly
+else:
+    print("main block else part of two.py")
+    # 4. Executes only when two.py is imported
+
+two_method()
+# 5. Executes in both cases
+
+```
