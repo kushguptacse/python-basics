@@ -861,7 +861,7 @@ Because of this, if you run child.py directly and it tries to import parent.py f
 
 7. In production prefer design where main file present in root package invokes sub-package files. where each package provide specific behaviour.
 
-### __name__ and '__main__'
+### `__name__` and `'__main__'`
 
 1. When a Python file is run **directly**, Python sets the special variable `__name__` to `"__main__"`. This allows us to execute code only when the file is run directly. 
 When the same file is **imported as a module**, `__name__` is set to the module’s name.
