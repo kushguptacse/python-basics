@@ -936,11 +936,14 @@ else:
 ---
 
 ## 🔤 Pylint and unittest Library
-1.  Pylint is a static code analysis tool for Python. It checks code quality, coding standards (PEP8), and possible errors. Pylint gives a score (0–10) for code quality. example- pylint sample.py
+1. Pylint is a static code analysis tool for Python. It checks code quality, coding standards (PEP 8), and possible errors. Pylint gives a score (0–10) for code quality.  
+   Example: `pylint sample.py`
 
-2. Common checks by pylint: Unused variables and imports, Naming convention issues, Broad except: usage, Missing docstrings, Code complexity etc. All these impact pylint score of file.
+2. Common checks by pylint include unused variables and imports, naming convention issues, broad `except` usage, missing docstrings, and code complexity. All these impact the pylint score of a file.
 
-3. unittest library is used to write unit test cases of python functions. Example to run test file: python3 -m tests.test_functions
+3. The `unittest` library is a built-in Python module used to write unit test cases for Python functions.  
+   Example to run a test file: `python3 -m tests.test_functions`
+
 ```python
 import unittest
 from functions import is_even
@@ -949,8 +952,8 @@ class TestFunctions(unittest.TestCase):
 
     def test_is_even_empty(self):
         my_list, message = is_even([])
-        self.assertEquals(my_list,[])
-	self.assertEquals(message,"success")
+        self.assertEqual(my_list, [])
+        self.assertEqual(message, "success")
 
 if __name__ == '__main__':
     unittest.main()
