@@ -958,3 +958,9 @@ class TestFunctions(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
 ```
+
+---
+
+## 🔤 python decorators
+
+1. python allow managing function inside a function.and any function can be treated just like normal object and hence can be assigned to variables, passed as arguments or return from function.this concept is used to create or use decorators in python.
