@@ -963,4 +963,23 @@ if __name__ == '__main__':
 
 ## 🔤 python decorators
 
-1. python allow managing function inside a function.and any function can be treated just like normal object and hence can be assigned to variables, passed as arguments or return from function.this concept is used to create or use decorators in python.
+1. unlike java python allow managing function inside a function.and any function can be treated just like normal object and hence can be assigned to variables, passed as arguments or return from function.this concept is used to create or use decorators in python.
+
+2. a decorator is a function which takes another function as argument and will return a wrapped function with additional logic. example of log decorator function -
+```python
+def log(func):
+    def wrapper():
+        print("Function called") #print second
+        func()
+    return wrapper
+
+@log
+def hello():
+    print("Hello") #print third 
+
+print("Before calling function") #print first 
+hello()
+print("After calling function") # print fourth
+```
+
+3. In above example log function is called on invocation of hello function and hello is passed as func argument. It is like decorating your hello method with gift wrap of outer function.
