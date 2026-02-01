@@ -965,21 +965,44 @@ if __name__ == '__main__':
 
 1. unlike java python allow managing function inside a function.and any function can be treated just like normal object and hence can be assigned to variables, passed as arguments or return from function.this concept is used to create or use decorators in python.
 
-2. a decorator is a function which takes another function as argument and will return a wrapped function with additional logic. example of log decorator function -
+2. a decorator is a function which takes another function as argument and will return a wrapped function with additional logic. It does not modify passed function behavior. example of log decorator function -
 ```python
 def log(func):
+    print("1. Inside log function") # 1
     def wrapper():
-        print("Function called") #print second
+        print("4. Inside wrapper function before calling passed function") #4
         func()
+        print("6. Inside wrapper function after calling passed function") #6
+    print("2. exiting log function") # 2
     return wrapper
 
 @log
 def hello():
-    print("Hello") #print third 
+    print("5. inside hello function") #5
 
-print("Before calling function") #print first 
+print("3. root level before calling hello") # 3
 hello()
-print("After calling function") # print fourth
+print("7. root level after calling hello") # 7
 ```
 
-3. In above example log function is called on invocation of hello function and hello is passed as func argument. It is like decorating your hello method with gift wrap of outer function.
+3. In the above example, the log decorator is executed when hello is defined, not when it is called.
+calling hello() actually executes the wrapped function. below example cover what @log annotation do-
+```python
+def log(func):
+    print("1. Inside log function") # 1
+    def wrapper():
+        print("4. Inside wrapper function before calling passed function") #4
+        func()
+        print("6. Inside wrapper function after calling passed function") #6
+    print("2. exiting log function") # 2
+    return wrapper
+
+def hello():
+    print("5. inside hello function") #5
+
+decorated_hello = log(hello)
+
+print("3. root level before calling returned function") # 3
+decorated_hello()
+print("7. root level after calling returned function") # 7
+```
