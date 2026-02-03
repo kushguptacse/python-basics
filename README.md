@@ -1006,3 +1006,52 @@ print("3. root level before calling returned function") # 3
 decorated_hello()
 print("7. root level after calling returned function") # 7
 ```
+---
+
+## 📦 Generators
+
+1. When you want to process large data-set. it is not possible to store them in memory in list before processing. so, here generators are useful. A generator is a special type of iterator in Python.It generates values lazily (on demand when next method is called) instead of storing them in memory.
+
+2. created using a function with yield keyword inside. example-
+```python 
+def create_cubes(n):
+    return [i**3 for i in range(n)] #storing everything in memory as list first and then returning
+
+for item in create_cubes(10):
+    print(item)
+
+def create_cube_via_generator(n):
+    for i in range(n):
+        yield i**3 # returning each number one by one.
+
+for item in create_cube_via_generator(10): # internally invoke next method
+    print(item)
+```
+
+3. Instead of using directly in for loop. we can iterate on each yield value one by one using next method. and once generator exhausted it will give StopIteration exception.
+```python
+def fibonaci(n):
+    a=b=1
+    for i in range(n):
+        yield a
+        a,b=b,a+b # swap values without extra variable
+
+fib_generator = fibonaci(3)
+print(fib_generator) # <generator object fibonaci at 0x707b5de42490>
+print(next(fib_generator)) #print 1
+print(next(fib_generator)) #print 1
+print(next(fib_generator)) #print 2
+#print(next(fib_generator)) #give exception - StopIteration
+```
+
+4. Limitations: unlike iterable objects like list- we cannot iterate by index, It only works in forward mode and once exhausted cannot be re-used.
+| List              | Generator           |
+| ----------------- | ------------------- |
+| Stores all values | Generates on demand |
+| High memory       | Low memory          |
+| Faster access     | Slower access       |
+| Indexable         | Not indexable       |
+
+5. range method returns range object which is iterable and lazy.but it is not a generator.
+
+6. Generators can be converted to a list if required using list(generator), but doing so defeats the memory advantage of generators.
