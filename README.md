@@ -1110,3 +1110,21 @@ print(dog1.age) #2
 print(dog1.breed) #Labrador
 print(dog1[2]) # Tommy
 ```
+
+---
+
+## 🔤 shutil and os module
+
+1. os and shutil are built-in Python modules that provide useful methods for managing files and directories.
+
+2. os.listdir(path) lists all files and folders in the given path. It does not list nested (subdirectory) contents.
+
+3. os.walk(path) returns an iterator of tuples in the form (dirpath, dirnames, filenames). It traverses the entire directory hierarchy recursively.
+
+4. os.unlink(path) deletes the file at the specified path.
+
+5. os.rmdir(path) deletes a directory at the specified path. The directory must be empty.
+
+6. shutil.rmtree(path) removes a directory and all its files and subdirectories recursively.
+
+7. shutil.move(src, dest) moves a file or directory from the source path to the destination path.
