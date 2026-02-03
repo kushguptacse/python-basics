@@ -1022,7 +1022,7 @@ for item in create_cubes(10):
 
 def create_cube_via_generator(n):
     for i in range(n):
-        yield i**3 # returning each number one by one.
+        yield i**3 # yield each number one by one.
 
 for item in create_cube_via_generator(10): # internally invoke next method
     print(item)
@@ -1055,3 +1055,12 @@ print(next(fib_generator)) #print 2
 5. range method returns range object which is iterable and lazy.but it is not a generator.
 
 6. Generators can be converted to a list if required using list(generator), but doing so defeats the memory advantage of generators.
+
+7. Just like list comprehensions, we can create generators using generator comprehension with parentheses () instead of square brackets []-
+```python
+def create_cube_via_generator_comprehension(n):
+    return (i**3 for i in range(n))  # yield each number one by one.
+
+for item in create_cube_via_generator_comprehension(10):
+    print(item)
+``` 
