@@ -1045,6 +1045,7 @@ print(next(fib_generator)) #print 2
 ```
 
 4. Limitations: unlike iterable objects like list- we cannot iterate by index, It only works in forward mode and once exhausted cannot be re-used.
+
 | List              | Generator           |
 | ----------------- | ------------------- |
 | Stores all values | Generates on demand |
@@ -1071,4 +1072,41 @@ s = 'hello'
 obj = iter(s)
 print(next(obj)) # 'h'
 print(next(obj)) # 'e'
+```
+
+---
+
+## 🔤 collections module
+
+1. Counter: Used to count occurrences of items in an iterable and return the result in dictionary format.
+```python
+from collections import Counter
+print(Counter([1,2,23,23,1,4,5,4,5,6]))  #Counter({1: 2, 23: 2, 4: 2, 5: 2, 2: 1, 6: 1})
+
+c= Counter("aabbbcccccccaad")
+print(c) #Counter({'c': 7, 'a': 4, 'b': 3, 'd': 1})
+print(c.most_common(2)) # list of tuple as most common elements [('c', 7), ('a', 4)]
+print(list(c)) #['a', 'b', 'c', 'd']
+```
+
+2. defaultdict: It allows setting a default value for a non-existent key. So if we try to access a key that does not exist, it will not raise a KeyError.
+```python
+from collections import defaultdict
+defaultdict_obj = defaultdict(lambda: "Not Present") # default value for non existing key
+defaultdict_obj['a'] = 1
+print(defaultdict_obj['a']) #1
+print(defaultdict_obj['b']) #Not Present
+```
+
+3. namedtuple: It allows assigning names to each index of a tuple. It resembles a lightweight class. they are immutable like tuple
+```python
+from collections import namedtuple
+# namedtuple allows to create tuple with named fields.
+Dog = namedtuple('Dog', ['age', 'breed', 'name']) 
+dog1 = Dog(age=2, breed='Labrador', name='Tommy')
+print(type(dog1))#<class '__main__.Dog'>
+print(dog1) #Dog(age=2, breed='Labrador', name='Tommy')
+print(dog1.age) #2
+print(dog1.breed) #Labrador
+print(dog1[2]) # Tommy
 ```
