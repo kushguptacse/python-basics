@@ -1121,6 +1121,26 @@ print(dog1[2]) # Tommy
 
 3. os.walk(path) returns an iterator of tuples in the form (dirpath, dirnames, filenames). It traverses the entire directory hierarchy recursively.
 
+```python 
+import os
+print(os.listdir('./packageA')) #['second.py', '__init__.py', 'packageB', 'app.py']
+for dirpath, dirnames, filenames in os.walk('./packageA'):
+    print("Current Path:", dirpath)
+    print("Directories:", dirnames)
+    print("Files:", filenames)  
+
+# output - 
+# Current Path: ./packageA
+# Directories: ['packageB']
+# Files: ['second.py', '__init__.py', 'app.py']
+# Current Path: ./packageA/packageB
+# Directories: ['__pycache__']
+# Files: ['first.py', '__init__.py']
+# Current Path: ./packageA/packageB/__pycache__
+# Directories: []
+# Files: ['__init__.cpython-310.pyc', 'first.cpython-310.pyc']
+```
+
 4. os.unlink(path) deletes the file at the specified path.
 
 5. os.rmdir(path) deletes a directory at the specified path. The directory must be empty.
@@ -1128,3 +1148,27 @@ print(dog1[2]) # Tommy
 6. shutil.rmtree(path) removes a directory and all its files and subdirectories recursively.
 
 7. shutil.move(src, dest) moves a file or directory from the source path to the destination path.
+
+
+---
+
+## 🔤 datetime
+
+datetime module has time, date and datetime class which provide different utility method to manage date time.
+
+```python
+t = datetime.time(4, 20, 1)
+
+print(t)  # 04:20:01
+print(f"hour: {t.hour}, minute: {t.minute}, second: {t.second}, microsecond: {t.microsecond}, tzinfo: {t.tzinfo}") # hour: 4, minute: 20, second: 1, microsecond: 0, tzinfo: None
+
+d = datetime.date(2023, 10, 5)
+print(d)  # 2023-10-05
+print(f"Year: {d.year}, Month: {d.month}, Day: {d.day}") #Year: 2023, Month: 10, Day: 5
+
+dt = datetime.datetime(2023, 10, 5, 4, 20, 1)  # combines date and time
+print(dt)  # 2023-10-05 04:20:01
+print(
+    f"Year: {dt.year}, Month: {dt.month}, Day: {dt.day}, Hour: {dt.hour}, Minute: {dt.minute}, Second: {dt.second}"
+) #Year: 2023, Month: 10, Day: 5, Hour: 4, Minute: 20, Second: 1
+```
