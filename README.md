@@ -1059,8 +1059,16 @@ print(next(fib_generator)) #print 2
 7. Just like list comprehensions, we can create generators using generator comprehension with parentheses () instead of square brackets []-
 ```python
 def create_cube_via_generator_comprehension(n):
-    return (i**3 for i in range(n))  # yield each number one by one.
+    return (i**3 for i in range(n))    # return generator object 
 
 for item in create_cube_via_generator_comprehension(10):
     print(item)
 ``` 
+
+8. Strings are iterable, and calling iter() on a string returns an iterator object-
+```python
+s = 'hello'
+obj = iter(s)
+print(next(obj)) # 'h'
+print(next(obj)) # 'e'
+```

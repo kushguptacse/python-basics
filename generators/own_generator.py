@@ -1,6 +1,7 @@
 def create_cubes(n):
     return [i**3 for i in range(n)] #storing everything in memory as list and then returning
 
+
 for item in create_cubes(10):
     print(item)
 
@@ -8,14 +9,16 @@ def create_cube_via_generator(n):
     for i in range(n):
         yield i**3 # yield each number one by one.
 
+print(create_cube_via_generator(1)) # <generator object create_cube_via_generator at 0x707b5de42490>
+
 for item in create_cube_via_generator(10):
     print(item)
 
 def create_cube_via_generator_comprehension(n):
-    return (i**3 for i in range(n))  # yield each number one by one.
+    return (i**3 for i in range(n))  # return generator object
 
 print("******")
-for item in create_cube_via_generator_comprehension(10):
+for item in create_cube_via_generator_comprehension(10): # iterate over generator.
     print(item)
 
 def fibonaci(n):
@@ -37,3 +40,9 @@ print(next(fib_generator)) #print 1
 print(next(fib_generator)) #print 2
 #print(next(fib_generator)) #give exception - StopIteration
 
+
+# convert string into iterator
+s = 'hello'
+obj = iter(s)
+print(next(obj)) # 'h'
+print(next(obj)) # 'e'
