@@ -1149,7 +1149,6 @@ for dirpath, dirnames, filenames in os.walk('./packageA'):
 
 7. shutil.move(src, dest) moves a file or directory from the source path to the destination path.
 
-
 ---
 
 ## 🔤 datetime
@@ -1171,4 +1170,27 @@ print(dt)  # 2023-10-05 04:20:01
 print(
     f"Year: {dt.year}, Month: {dt.month}, Day: {dt.day}, Hour: {dt.hour}, Minute: {dt.minute}, Second: {dt.second}"
 ) #Year: 2023, Month: 10, Day: 5, Hour: 4, Minute: 20, Second: 1
+```
+
+---
+
+## 🔤 math and random module
+
+1. it has useful functions like floor,ceil,round. and also some constant variable like e, inf, nan
+
+```python
+import math
+
+print(math.floor(5.3)) #5
+print(math.floor(5.9))#5
+print(math.ceil(5.3))#6
+print(math.ceil(5.9))#6
+print(round(5.9))#6
+print(round(5.2))#5
+print(round(5.5))#6
+print(round(4.5))#4, in case of .5 it always choose closest even number 
+
+print(math.e)#2.718281828459045
+print(math.inf)#inf
+print(math.nan)#nan
 ```
