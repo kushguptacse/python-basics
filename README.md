@@ -1176,7 +1176,7 @@ print(
 
 ## 🔤 math and random module
 
-1. it has useful functions like floor,ceil,round. and also some constant variable like e, inf, nan
+1. The math module provides useful mathematical functions such as floor, ceil, and round, along with important constant values like e, inf, and nan.
 
 ```python
 import math
@@ -1193,4 +1193,33 @@ print(round(4.5))#4, in case of .5 it always choose closest even number
 print(math.e)#2.718281828459045
 print(math.inf)#inf
 print(math.nan)#nan
+```
+
+2. random has randint to return random list. shuffle to shuffle list, choice to get random element from list, choices to get k element from list, sample to get k element from list without repetition.
+
+| Function    | Description                                     |
+| ----------- | ----------------------------------------------- |
+| `choice()`  | Returns one random element                      |
+| `sample()`  | Returns k elements **without repetition**       |
+| `choices()` | Returns k elements **with possible repetition** |
+| `shuffle()` | Randomly rearranges the list in-place           |
+
+```python
+import random
+
+print(random.randint(0, 100))  # print new number every time
+# The value 101 is completely arbitrary, you can pass in any number you want
+random.seed(
+    101
+)  # it set the sequence fix. so if same number is used it will generate same random number in order.
+# You can run this as many times as you want, it will always return the same number
+print(random.randint(0, 100))  # 74
+print(random.randint(0, 100))  # 24
+print(random.randint(0, 100))  # 69
+my_list = [0, 1, 2, 3, 4, 5, 6, 8, 9, 10]
+random.shuffle(my_list) # suffle in-place
+print(my_list)  # [9, 2, 3, 6, 1, 4, 10, 0, 8, 5]
+print(random.choice(my_list))  # any random element from list
+print(random.sample(my_list, 3))  # [6, 1, 3]
+print(random.choices(my_list, k=3))  # [6, 1, 1]
 ```
