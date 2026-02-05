@@ -7,3 +7,9 @@ res = requests.get("https://en.wikipedia.org/wiki/Samsung_Galaxy_Watch_6", heade
 soup = bs4.BeautifulSoup(res.text,"lxml")
 print(soup.select("title"))  #[<title>Samsung Galaxy Watch 6 - Wikipedia</title>]
 print(soup.select("title")[0].getText())  #Samsung Galaxy Watch 6 - Wikipedia
+
+from PIL import Image
+
+words = Image.open('word_matrix.png')
+
+words.resize((200, 200)).save('word_matrix_resized.png')

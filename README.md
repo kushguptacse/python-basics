@@ -1290,8 +1290,8 @@ for match in re.finditer(pattern,"my phone is a super phone"):
 
 ---
 
-## 🔤 web- scrapping
-BeautifulSoup library is very useful to scrape web pages content.
+## 🔤 web-scrapping and image
+1. BeautifulSoup library is very useful to scrape web pages content.
 
 ```python
 import requests
@@ -1303,3 +1303,14 @@ soup = bs4.BeautifulSoup(res.text,"lxml")
 print(soup.select("title"))  #[<title>Samsung Galaxy Watch 6 - Wikipedia</title>]
 print(soup.select("title")[0].getText())  #Samsung Galaxy Watch 6 - Wikipedia
 ```
+
+2. pillow library is useful for managing images.
+
+```python
+from PIL import Image
+
+words = Image.open('word_matrix.png')
+
+words.resize((200, 200)).save('word_matrix_resized.png')
+```
+
