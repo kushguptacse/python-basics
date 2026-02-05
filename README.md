@@ -1224,7 +1224,6 @@ print(random.sample(my_list, 3))  # [6, 1, 3]
 print(random.choices(my_list, k=3))  # [6, 1, 1]
 ```
 
-
 ---
 
 ## 🔤 regex
@@ -1288,3 +1287,19 @@ for match in re.finditer(pattern,"my phone is a super phone"):
 | Reusability | Pattern must be written again and again | Pattern stored in variable   |
 | Readability | Less readable in large code             | Cleaner and organized        |
 | Flexibility | Good for one-time use                   | Best for multiple operations |
+
+---
+
+## 🔤 web- scrapping
+BeautifulSoup library is very useful to scrape web pages content.
+
+```python
+import requests
+import bs4
+
+res = requests.get("https://en.wikipedia.org/wiki/Samsung_Galaxy_Watch_6")
+
+soup = bs4.BeautifulSoup(res.text,"lxml")
+print(soup.select("title"))  #[<title>Samsung Galaxy Watch 6 - Wikipedia</title>]
+print(soup.select("title")[0].getText())  #Samsung Galaxy Watch 6 - Wikipedia
+```
