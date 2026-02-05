@@ -1278,3 +1278,13 @@ for match in re.finditer(pattern,"my phone is a super phone"):
 | {3,}      | Occurs 3 or more          | \w{3,}               | anycharacters  |
 | *         | Occurs zero or more times | A*B*C*               | AAACC          |
 | ?         | Once or none              | plurals?             | plural         |
+
+6. difference between using compile or passing regex directly in function:
+
+| Feature     | Without `re.compile()`                  | With `re.compile()`          |
+| ----------- | --------------------------------------- | ---------------------------- |
+| Compilation | Compiled every time function is called  | Compiled only once           |
+| Performance | Slower if used repeatedly               | Faster for repeated use      |
+| Reusability | Pattern must be written again and again | Pattern stored in variable   |
+| Readability | Less readable in large code             | Cleaner and organized        |
+| Flexibility | Good for one-time use                   | Best for multiple operations |

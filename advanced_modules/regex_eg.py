@@ -17,3 +17,9 @@ print(match_all) # print phone phone
 # to get entire match object instead of just matched string use finditer
 for match in re.finditer(pattern,"my phone is a super phone"):
     print(match.group()) # print phone twice
+
+pattern = re.compile(r"\d{2,}") #pre-compute regex pattern for future use.
+
+print(pattern.findall("12 hello 1h 23p")) # ['12', '23']
+
+print(pattern.findall("addrees is b10 ")) # ['10']
