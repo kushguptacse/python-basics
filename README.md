@@ -1223,3 +1223,58 @@ print(random.choice(my_list))  # any random element from list
 print(random.sample(my_list, 3))  # [6, 1, 3]
 print(random.choices(my_list, k=3))  # [6, 1, 1]
 ```
+
+
+---
+
+## 🔤 regex
+
+1. re.search() takes a pattern and a text string and returns the first matched object if a match is found, otherwise it returns None. 
+
+2. The Match object returned by search() or match() provides useful methods like span, start, end method to provide index of matched string.
+
+3. findall() method returns all matched text as a list of strings and if you want all matched object use finditer method
+
+```python
+import re
+
+pattern = r"p\w{4}"
+match = re.search(pattern,"my phone is a super phone")
+#search matches the first instance only. not all.
+print(match) #<re.Match object; span=(3, 8), match='phone'>
+print(match.span()) #(3, 8)
+print(match.start()) #3
+print(match.end()) #8
+print(match.string) #my phone is a super phone
+print(match.group()) #return actual matched text - phone
+
+#To find all matches use findall method
+match_all = re.findall(pattern,"my phone is a super phone")
+print(match_all) # print phone phone
+
+# to get entire match object instead of just matched string use finditer
+for match in re.finditer(pattern,"my phone is a super phone"):
+    print(match.group()) # print phone twice
+```
+
+4. Common regex character classes:
+
+| Character | Description       | Example Pattern Code | Example Match |
+|-----------|------------------|----------------------|---------------|
+| \d        | A digit          | file_\d\d            | file_25       |
+| \w        | Alphanumeric     | \w-\w\w\w            | A-b_1         |
+| \s        | White space      | a\sb\sc              | a b c         |
+| \D        | A non digit      | \D\D\D               | ABC           |
+| \W        | Non-alphanumeric | \W\W\W\W\W           | *-+=)         |
+| \S        | Non-whitespace   | \S\S\S\S             | Yoyo          |
+
+5. quantifiers: 
+
+| Character | Description               | Example Pattern Code | Example Match  |
+| --------- | ------------------------- | -------------------- | -------------- |
+| +         | Occurs one or more times  | Version \w-\w+       | Version A-b1_1 |
+| {3}       | Occurs exactly 3 times    | \D{3}                | abc            |
+| {2,4}     | Occurs 2 to 4 times       | \d{2,4}              | 123            |
+| {3,}      | Occurs 3 or more          | \w{3,}               | anycharacters  |
+| *         | Occurs zero or more times | A*B*C*               | AAACC          |
+| ?         | Once or none              | plurals?             | plural         |
