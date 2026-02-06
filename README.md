@@ -1314,3 +1314,14 @@ words = Image.open('word_matrix.png')
 words.resize((200, 200)).save('word_matrix_resized.png')
 ```
 
+3. Python has a built-in csv module to work with CSV files. However, for handling more complex CSV operations, external libraries like pandas and openpyxl can also be used, as they provide more advanced features and better data manipulation capabilities.
+
+| Feature                | csv module | pandas      | openpyxl |
+| ---------------------- | ---------- | ----------- | -------- |
+| Built-in               | ✅ Yes      | ❌ No        | ❌ No     |
+| Easy to use            | ✅          | ✅           | ⚠️       |
+| Advanced data analysis | ❌          | ✅           | ❌        |
+| Large file handling    | ⚠️ Limited | ✅ Excellent | ⚠️       |
+| Excel integration      | ❌          | ✅           | ✅        |
+
+4. pypdf, tabula, pdfplumber, camelot can be used to work with pdf which also includes tables.
