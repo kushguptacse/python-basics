@@ -143,12 +143,15 @@ x=x+1
 print(x) # error string can be concatenated with string only.
 ```
 
-9. String methods like x.upper(), x.lower(), x.split() 
+9. String methods like x.upper(), x.lower(), x.split() , x.count(), x.find() , x.isalpha(), x.islower(), x.isspace()
 ```python
 # split default delimeter is space
 x.split()
 x.split(" ")
 x.split("i")
+"hello world".find("o") #print 4
+"hello world".count("o") #print 2
+"hello world".islower() #print True
 ```
 
 10. print Formatting in string
@@ -286,6 +289,16 @@ print(myset)# print {1,2,3}
 myset = {1,2,3,2}
 print(myset)# print {1,2,3}
 myset = {} # valid, but it will create empty dict not set.
+set1 = {1, 2, 3}
+set2 = {2, 4, 6}
+print(set1.difference(set2))  # return new set {1, 3}
+set1.discard(3) 
+print(set1) # {1,2}
+set1.difference_update(set2) # return set1 after removing set2
+print(set1) # {1}
+set1 = {1,2,3}
+set2 = {1,3,4,2}
+print(set1.issubset(set2)) # True
 ```
 ---
 
@@ -1325,3 +1338,23 @@ words.resize((200, 200)).save('word_matrix_resized.png')
 | Excel integration      | ❌          | ✅           | ✅        |
 
 4. pypdf, tabula, pdfplumber, camelot can be used to work with pdf which also includes tables.
+
+---
+
+## 🔤 Advanced Numbers
+
+1. number can be represented in binary form using hex,bin method
+
+```python
+print(hex(123)) #0x7b
+print(hex(15)) #0xf
+print(hex(4)) #0x4
+print(bin(15))#0b1111
+print(bin(10))#0b1010
+```
+2. abs method return absolute value i.e. without negative sign
+
+```python
+print(abs(-3.3))#3.3
+print(abs(4))#4
+```
