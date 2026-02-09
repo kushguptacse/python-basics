@@ -217,6 +217,19 @@ num_list.reverse()
 print(f"reversed num_list: {num_list}") # print reversed num_list: [9, 6, 5, 5, 2, 1]
 sample = ['a','a','b']
 print(f"count 'a': {sample.count('a')}") # print 2
+mylist = [0, 4, 16, 36, 64, 100]
+print(mylist.index(36)) # print index of 36 i.e. 3
+#print(mylist.index(9)) # give value error as element not present
+nums = [0,1,2,3]
+nums.insert(1,'hello')
+print(nums) #[0, 'hello', 1, 2, 3]
+nums = [1,2,3,1]
+nums.pop() # remove last element of list
+print(nums) #[1, 2, 3]
+nums.pop(1) # remove 1st index element
+print(nums) #[1, 3]
+nums.remove(1) # remove all occurence of element 1
+print(nums) #[3]
 ```
 ---
 

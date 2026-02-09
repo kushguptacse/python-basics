@@ -40,3 +40,17 @@ print(mylist) # print [0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 mylist = [item**2 for item in range(0,11) if item%2==0] 
 print(mylist) # print [0, 4, 16, 36, 64, 100]
 
+# advanced list method
+print("*****************************************")
+print(mylist.index(36)) # print index of 36 i.e. 3
+#print(mylist.index(9)) # give value error as element not present
+nums = [0,1,2,3]
+nums.insert(1,'hello')
+print(nums) #[0, 'hello', 1, 2, 3]
+nums = [1,2,3,1]
+nums.pop() # remove last element of list
+print(nums) #[1, 2, 3]
+nums.pop(1) # remove 1st index element
+print(nums) #[1, 3]
+nums.remove(1) # remove all occurence of element 1
+print(nums) #[3]
