@@ -231,6 +231,17 @@ sample['name']='agent'
 print(sample['name']) # print agent
 sample[2351]='kk'
 print(sample) # print {'name': 'agent', 'age': 34, 'k2': [1, 2, 3], 'k3': {'nested': 900}, 2351: 'kk'}
+ames = ["a", "b"]
+age = [23, 34]
+dict1 = {names[x]: age[x] for x in range(len(names))}  # dict comprehension
+for k, v in dict1.items():
+    print(f"key: {k}, value: {v}")
+
+for k in dict1.keys():
+    print(f"key: {k}") # print keys
+
+for v in dict1.values():
+    print(f"value: {v}") # print values
 ```
 
 2. Allowed keys in dict are immutable objects like int, float, str, tuple, bool, frozenset. We can also mix key types
