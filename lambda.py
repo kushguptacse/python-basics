@@ -16,7 +16,7 @@ res_generator = filter(is_even, nums)
 print(list(res_generator))
 
 # lambda example
-print(list(map(lambda x: x**2, nums)))
-print(list(filter(lambda x: x % 2 == 0, nums)))
+print(list(map(lambda x: x**2, nums)))#[1, 4, 9, 16]
+print(list(filter(lambda x: x % 2 == 0, nums)))#[2, 4]
 # square of even numbers
-print(list(map(lambda x: x**2, filter(lambda x: x % 2 == 0, nums))))
+print(list(map(lambda x: x**2, filter(lambda x: x % 2 == 0, nums))))#[4, 16]

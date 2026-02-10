@@ -30,5 +30,8 @@ for k, v in dict1.items():
 for k in dict1.keys():
     print(f"key: {k}") # print keys
 
+for k in dict1:
+    print(f"key: {k}") # print keys
+
 for v in dict1.values():
     print(f"value: {v}") # print values
