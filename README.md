@@ -244,13 +244,16 @@ sample['name']='agent'
 print(sample['name']) # print agent
 sample[2351]='kk'
 print(sample) # print {'name': 'agent', 'age': 34, 'k2': [1, 2, 3], 'k3': {'nested': 900}, 2351: 'kk'}
-ames = ["a", "b"]
+names = ["a", "b"]
 age = [23, 34]
 dict1 = {names[x]: age[x] for x in range(len(names))}  # dict comprehension
 for k, v in dict1.items():
     print(f"key: {k}, value: {v}")
 
 for k in dict1.keys():
+    print(f"key: {k}") # print keys
+
+for k in dict1:
     print(f"key: {k}") # print keys
 
 for v in dict1.values():
@@ -316,7 +319,7 @@ myset = {} # valid, but it will create empty dict not set.
 set1 = {1, 2, 3}
 set2 = {2, 4, 6}
 print(set1.difference(set2))  # return new set {1, 3}
-set1.discard(3) 
+set1.discard(3)  # remove element from set
 print(set1) # {1,2}
 set1.difference_update(set2) # return set1 after removing set2
 print(set1) # {1}
@@ -332,7 +335,7 @@ valid value True or False. all comparison operator returns bool value
 val = False
 print(val)
 print(type(val)) # print <class 'bool'>
-val = None
+val = None # equivalent of null in java
 print(val) # print None
 print(type(val)) # print <class 'NoneType'>
 
@@ -345,8 +348,6 @@ print(f"'2'==2: {'2'==2}") # print False
 print(f"2==2.0: {2==2.0}") # print True as for float python just check value.
 print(f"1<2<3: {1<2<3}")# print True. it is evaluated left to right
 print(f"1<2>3: {1<2>3}")# print False. it is evaluated left to right
-print(f"1<2 and 2<3: {1<2 and 2<3}")# print True.
-print(f"1<2 or 2<3: {1<2 or 2>3}")# print True.
 ```
 ---
 
@@ -417,7 +418,7 @@ for item in [1, 2, 3]:
 
 # iterate over string
 for letter in "hello world":
-    print(letter)
+    print(letter) # print character by character in newline
 
 # iterate over tuple
 for tup in (1,2,3):
@@ -426,11 +427,6 @@ for tup in (1,2,3):
 # iterate over list of tuple
 for a,b in [(1,2),(3,4),(5,6)]:
     print(f"first tuple {a} and second tuple {b}")
-
-# iterate over dictionary using keys
-sample_dict = {"k1":"v1","k2":"v2","k3":"v3"}
-for key in sample_dict:
-    print(f"elements with key {key} is {sample_dict[key]}")
 
 # iterate over dictionary using dictionary entry
 for key,item in sample_dict.items(): #tuple
@@ -473,7 +469,7 @@ nums = [1,2,35]
 for i, val in enumerate(nums):
     print(f"item at index {i} is {val}")
 ```
-7. zip operator: using zip you can iterate on multiple iterables together index wise. and loop will iterate till length of smallest iterable exhausted.
+7. zip operator: using zip you can iterate on multiple iterables together one by one. and loop will iterate till length of smallest iterable exhausted.
 ```python
 l1 = [1,2,3]
 l2 = ['a','b','c']
@@ -543,6 +539,8 @@ a,b={1,2} # a=1,b=2
 l1,l2 = [1,2,3] # it will give error as three variables required
 f,*s=[1,2,3,4] # f=1 and s=[2,3,4]
 c1,c2,c3='hel' # c1='h',c2='e' and c3='l'
+ke1,ke2={'k1':1,'k2':2}
+print(ke1,ke2) #print k1 k2
 ```
 
 ---
@@ -580,7 +578,7 @@ arg_test(10,20,30) # print (10, 20, 30) and length as 3
 arg_test((10,20,30)) # it will pass entire tuple as args[0] only. print ((10, 20, 30),) and length as 1
 arg_test({"fruit":"apple","mango":23}) # it will pass entire dict as args[0] only. print ({'fruit': 'apple', 'mango': 23},) and length as 1
 
-def kwarg_test(**kwargs): #it will take key,value pair as input
+def kwarg_test(**kwargs): #it will take key,value pairs as input
     print(type(kwargs)) # print <class 'dict'>
     print(kwargs) # print {'fruit': 'apple', 'mango': 23}
     for k,v in kwargs.items():
@@ -622,10 +620,10 @@ print(list(res))
 res = filter(is_even, nums)
 print(list(res))
 # lambda example
-print(list(map(lambda x: x**2, nums)))
-print(list(filter(lambda x: x % 2 == 0, nums)))
+print(list(map(lambda x: x**2, nums)))#[1, 4, 9, 16]
+print(list(filter(lambda x: x % 2 == 0, nums)))#[2, 4]
 # square of even numbers
-print(list(map(lambda x: x**2, filter(lambda x: x % 2 == 0, nums))))
+print(list(map(lambda x: x**2, filter(lambda x: x % 2 == 0, nums))))#[4, 16]
 ```
 
 ---
@@ -689,7 +687,7 @@ print(x) #print 3
 ---
 
 ## 🔤 oops
-1. In python everything is an object. list, dict, str etc are built-in class. 
+1. In python everything is an object. list, dict, str etc are built-in class.
 ```python
 print(type([1,2,3])) # print <class 'list'>
 ```
@@ -770,7 +768,7 @@ my_animal = Animal()#print Animal created
 5. Python supports polymorphism dynamically (duck typing), not via static types.
 ```python
 class Dog:
-    def __init__(self,name):
+    def __init__(self, name):
         self.name=name
 
     def speak(self):
@@ -1193,6 +1191,7 @@ for dirpath, dirnames, filenames in os.walk('./packageA'):
 datetime module has time, date and datetime class which provide different utility method to manage date time.
 
 ```python
+import datetime
 t = datetime.time(4, 20, 1)
 
 print(t)  # 04:20:01
@@ -1213,7 +1212,7 @@ print(
 
 ## 🔤 math and random module
 
-1. The math module provides useful mathematical functions such as floor, ceil, and round, along with important constant values like e, inf, and nan.
+1. The math module provides useful mathematical functions such as floor, ceil, along with important constant values like e, inf, and nan.
 
 ```python
 import math
@@ -1288,7 +1287,7 @@ print(match.group()) #return actual matched text - phone
 match_all = re.findall(pattern,"my phone is a super phone")
 print(match_all) # print phone phone
 
-# to get entire match object instead of just matched string use finditer
+# to get entire match objects instead of just matched string use finditer
 for match in re.finditer(pattern,"my phone is a super phone"):
     print(match.group()) # print phone twice
 ```
@@ -1316,6 +1315,11 @@ for match in re.finditer(pattern,"my phone is a super phone"):
 | ?         | Once or none              | plurals?             | plural         |
 
 6. difference between using compile or passing regex directly in function:
+```python
+import re
+pattern = re.compile(r"\d{2,}") #pre-compute regex pattern for future use.
+print(pattern.findall("12 hello 1h 23p")) # ['12', '23']
+```
 
 | Feature     | Without `re.compile()`                  | With `re.compile()`          |
 | ----------- | --------------------------------------- | ---------------------------- |

@@ -12,7 +12,7 @@ for item in [1, 2, 3]:
 
 # iterate over string
 for letter in "hello world":
-    print(letter)
+    print(letter) # print character by character in newline
 
 # iterate over tuple
 for tup in (1, 2, 3):
@@ -63,4 +63,6 @@ f,*s=[1,2,3,4] # f=1 and s=[2,3,4]
 print(f"x {f} and y {s}")
 c1,c2,c3='hel' # c1='h',c2='e' and c3='l'
 print(f"x {c1} and y {c2}")
+ke1,ke2={'k1':1,'k2':2}
+print(ke1,ke2) #print k1 k2
 l1,l2 = [1,2,3] # it will give error as three variables required'
