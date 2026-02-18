@@ -44,8 +44,10 @@ print(
 )  # print Helloworld
 print(type("jelll"))
 
-print(f"{10.9:10.5f}")
+print(f"{10.9:10.5f}") # print 10.90000 after 10 spaces
 print("*****************************")
 print("hello world".find("o"))  # print 4
 print("hello world".count("o"))  # print 2
 print("hello world".islower())  # print True
+
+print(f"{2:10d}")# print 2 after 10 spaces
