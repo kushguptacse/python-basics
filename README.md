@@ -269,6 +269,14 @@ print(data["1"])  # string key
 
 3. If you want to maintain order of dict keys just like LinkedHashMap python has ordereddict. after python3.7+ dict maintains insertion order
 
+4. Dicts can be merged together using '|' operator. for common keys, value of second dict will be used:
+```python
+dict1 = {1: "h", 2: "k"}
+dict2 = {3:"k", "4":"e",1:"io"}
+
+dict_merged = dict1 | dict2
+print(dict_merged) #{1: 'io', 2: 'k', 3: 'k', '4': 'e'}
+```
 ---
 
 ## 🔤 Tuples
