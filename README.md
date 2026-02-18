@@ -335,6 +335,19 @@ set1 = {1,2,3}
 set2 = {1,3,4,2}
 print(set1.issubset(set2)) # True
 ```
+
+2. Set can store immutable object only and hence cannot store list,dict, set inside set. You can pass list into set consturctor which will internally store only unique values.
+
+```python
+myset = set([1,2,3,4,2]) #The list is used only as input, but the set stores individual int elements, not the list itself.
+print(myset) # print {1,2,3,4}
+
+set3 = {1,2,3,[1,2]} # not allowed directly, as set can store immutable object only.
+
+set4 = {1, 2, (3,4)}  # tuple allowed as they are immutable
+print(set4)
+```
+
 ---
 
 ## 🔤 bool

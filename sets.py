@@ -5,9 +5,9 @@ myset.add(
 print(myset)  # print {'hello'}
 myset = set("hello")
 print(myset)  # print {'h', 'e', 'l', 'o'}
-myset = set([1, 2, 3, 4])
+myset = set([1, 2, 3, 4, 2])
 print(myset)  # print {1,2,3,4}
-myset = set((1, 2, 3))
+myset = set((1, 2, 3, 2 ))
 print(myset)  # print {1,2,3}
 myset = {1, 2, 3}
 print(myset)  # print {1,2,3}
@@ -32,3 +32,9 @@ print(set1) # {1}
 set1 = {1,2,3}
 set2 = {1,3,4,2}
 print(set1.issubset(set2)) # True
+
+set3 = {1,2,3,[1,2]} # not allowed directly, as set can store immutable object only.
+print(set3)
+
+set4 = {1, 2, (3,4)}  # tuple allowed as they are immutable
+print(set4)
