@@ -28,10 +28,17 @@ for k, v in dict1.items():
     print(f"key: {k}, value: {v}")
 
 for k in dict1.keys():
-    print(f"key: {k}") # print keys
+    print(f"key: {k}")  # print keys
 
 for k in dict1:
-    print(f"key: {k}") # print keys
+    print(f"key: {k}")  # print keys
 
 for v in dict1.values():
-    print(f"value: {v}") # print values
+    print(f"value: {v}")  # print values
+
+# merge dictionary
+dict1 = {1: "h", 2: "k"}
+dict2 = {3:"k", "4":"e",1:"io"}
+
+dict_merged = dict1 | dict2
+print(dict_merged) #{1: 'io', 2: 'k', 3: 'k', '4': 'e'}
