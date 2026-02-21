@@ -573,7 +573,7 @@ print(ke1,ke2) #print k1 k2
 
 3. Note - function should be declared first and then only can be called.
 
-4. we can also provide default value to param to avoid error in case not passed. 
+4. we can also provide default value to param to avoid error in case not passed. non default value params should always comes first and default value parameters last.
 
 ```python
 def get_order_status(order_id=34):
