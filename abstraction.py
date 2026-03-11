@@ -26,3 +26,11 @@ class Hero:
 
 hero = Hero() #no error as ABC parent does not exists
 hero.power() #no error
+
+class SampleAbs(ABC):
+    class_var = "hello"
+    @abstractmethod
+    def sample_method(self):
+        return
+    
+print(SampleAbs.class_var)
